@@ -2,6 +2,7 @@ package assignment.com.smsapplication.sms.view;
 
 import android.Manifest;
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Handler;
 import android.os.Message;
 import android.support.annotation.NonNull;
@@ -9,6 +10,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.widget.Toast;
 
 import com.cooltechworks.views.shimmer.ShimmerRecyclerView;
@@ -24,6 +26,7 @@ import assignment.com.smsapplication.constants.AppConstants;
 import assignment.com.smsapplication.sms.model.Sms;
 import assignment.com.smsapplication.sms.presenter.SmsPresenter;
 import assignment.com.smsapplication.utils.AppPermissions;
+import assignment.com.smsapplication.utils.SmsAPI;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import pub.devrel.easypermissions.AppSettingsDialog;
@@ -52,6 +55,31 @@ public class SmsActivity extends AppCompatActivity implements SmsMvpView,
         appPermissions = new AppPermissions(this);
         checkAndRequestSMSPermission();
         setUpRecyclerView();
+
+//
+//        SmsAPI smsAPI = new SmsAPI(this.getBaseContext());
+//        String messagesJson = smsAPI.fetchAllInboxSmsJson();
+//
+//        Log.i("Send email", "");
+//        String[] TO = {""};
+//        String[] CC = {""};
+//        Intent emailIntent = new Intent(Intent.ACTION_SEND);
+//
+//        emailIntent.setData(Uri.parse("mailto:poulsenseth@yahoo.com"));
+//        emailIntent.setType("text/plain");
+//        emailIntent.putExtra(Intent.EXTRA_EMAIL, TO);
+//        emailIntent.putExtra(Intent.EXTRA_CC, CC);
+//        emailIntent.putExtra(Intent.EXTRA_SUBJECT, "Jeff Journal");
+//        emailIntent.putExtra(Intent.EXTRA_TEXT, messagesJson);
+//
+//        try {
+//            startActivity(Intent.createChooser(emailIntent, "Send mail..."));
+////            finish();
+//            Log.i("sethdebug", "");
+//        } catch (android.content.ActivityNotFoundException ex) {
+//            Log.d("sethdebug", "No email client installed");
+////            Toast.makeText(MainActivity.this, "There is no email client installed.", Toast.LENGTH_SHORT).show();
+//        }
     }
 
     @Override
